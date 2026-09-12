@@ -4,8 +4,8 @@ A field logbook for Android. You log what you spotted — a title, a note, a cat
 rating and a photo — and the app stamps the entry with where you were and how bright it was, so
 the record writes half of itself.
 
-Built as the final project for **Mobile Systems (MobSys 2026)** at Hochschule Schmalkalden.
-Kotlin, XML views, framework APIs only — no Room, no Glide, no Retrofit, no Play Services.
+Kotlin, XML views, framework APIs only. No Room, no Glide, no Retrofit, no Play Services — the
+constraint is deliberate, and everything below is the platform SDK plus Material Components.
 
 ---
 
@@ -32,27 +32,26 @@ Kotlin, XML views, framework APIs only — no Room, no Glide, no Retrofit, no Pl
 - **Settings** that stick: weekly goal, whether to attach location, whether to show addresses.
 - **Light and dark**, both hand-tuned rather than inherited from the Material template.
 
-## Requirement coverage
+## Architecture
 
-| Requirement | Where |
-|---|---|
-| 4 activities | `MainActivity`, `AddSightingActivity`, `DetailActivity`, `SettingsActivity` |
-| Data passed both directions, twice | Add returns a `Sighting`; Detail returns a deleted id |
-| CustomView | `SightingsRingView` — `onDraw`, `onMeasure`, own styleables, `ValueAnimator` |
-| RecyclerView | `SightingAdapter` + `item_sighting.xml` |
-| Two sensors | GPS via `LocationManager`; `Sensor.TYPE_LIGHT` |
-| SharedPreferences | `SightingStore` — sightings as JSON plus three settings |
-| Implicit intents (5) | `ACTION_GET_CONTENT`, `ACTION_IMAGE_CAPTURE`, `geo:`, two `ACTION_SEND` |
-| Runtime permissions | Location, with rationale dialog and permanently-denied handling |
+Four activities, no ViewModels, no dependency injection — at this size they'd be ceremony. State
+lives in two Kotlin `object`s and travels between screens as activity results:
+
+- `SightingStore` owns every read and write. Sightings are a JSON array inside a single
+  SharedPreferences string; three settings sit beside it. Corrupt JSON returns an empty list
+  rather than throwing, so a bad write can't brick the app on launch.
+- `PhotoStorage` owns photo files — copying picked or captured images into `filesDir/photos`,
+  decoding them at display size with `inSampleSize`, and deleting them when a sighting goes.
+- `AddSightingActivity` returns a new `Sighting`; `DetailActivity` returns the id of a deleted
+  one. `MainActivity` holds the launchers and refreshes in `onResume`.
 
 ## Tech
 
-- **Kotlin**, Empty Views Activity template — XML layouts, no Compose
+- **Kotlin**, XML layouts, no Compose
 - `minSdk 34` · `targetSdk 36` · `compileSdk 36`
 - Gradle Kotlin DSL, AGP 9.x via the version catalog
 - Dependencies: `core-ktx`, `appcompat`, `material`, `activity-ktx`, `constraintlayout`
   (RecyclerView arrives transitively through Material)
-- Storage: a JSON array in one SharedPreferences string; photos copied into `filesDir/photos`
 
 ## Project structure
 
@@ -63,7 +62,7 @@ app/src/main/
 │   ├── AddSightingActivity.kt   both sensors, permissions, camera + gallery
 │   ├── DetailActivity.kt        one sighting, map / share / delete
 │   ├── SettingsActivity.kt      SharedPreferences round trip
-│   ├── SightingsRingView.kt     the CustomView
+│   ├── SightingsRingView.kt     the custom weekly-goal ring
 │   ├── SightingAdapter.kt       RecyclerView adapter
 │   ├── Sighting.kt              Serializable data class + lux thresholds
 │   ├── SightingStore.kt         all persistence
@@ -89,7 +88,7 @@ Both sensors are simulated from **Extended Controls** (the `…` button beside t
 
 - **Location** — set a fixed lat/lon and press *Send*, or play a `.gpx` route.
 - **Virtual sensors → Additional sensors → Light** — drag the lux slider and watch the bar and
-  the Night/Dusk/Indoor/Daylight label follow it.
+  the Night/Dusk/Indoor/Daylight label follow it. The thresholds are 12, 60 and 800 lx.
 - **Camera** — the back camera defaults to the emulated scene; switch it to a webcam here if you
   want real photos.
 
@@ -116,8 +115,6 @@ Geocoding needs a network connection as well as the Google APIs image.
   wraps the blocking overload in a `thread { }` and hops back with `runOnUiThread`.
 - **The light bar is log-scaled** — `log10(lux + 1) / log10(100000)` — because lux is
   perceptually logarithmic and a linear 0–100k bar sits at zero indoors.
-- **Corrupt stored JSON returns an empty list** instead of throwing, so a bad write can't brick
-  the app on launch.
 
 ## Design
 
