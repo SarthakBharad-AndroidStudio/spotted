@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Light palette — warm cream page, softened red accent, sage support.
+        The page (background) is the saturated cream; surfaces sit one step
+        lighter so cards read as lifted off it instead of blending in.
+    -->
+    <color name="md_theme_light_primary">#BD4444</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#FFDAD4</color>
+    <color name="md_theme_light_onPrimaryContainer">#440007</color>
+
+    <color name="md_theme_light_secondary">#73976A</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#DDEBD2</color>
+    <color name="md_theme_light_onSecondaryContainer">#1D3716</color>
+
+    <color name="md_theme_light_tertiary">#677E61</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#E4EEDD</color>
+    <color name="md_theme_light_onTertiaryContainer">#233020</color>
+
+    <color name="md_theme_light_background">#F1DEC4</color>
+    <color name="md_theme_light_onBackground">#281E1B</color>
+    <color name="md_theme_light_surface">#FBF3E7</color>
+    <color name="md_theme_light_onSurface">#2A211B</color>
+    <color name="md_theme_light_surfaceVariant">#E7D5B9</color>
+    <color name="md_theme_light_onSurfaceVariant">#6B5D4B</color>
+
+    <color name="md_theme_light_outline">#9C8B73</color>
+    <color name="md_theme_light_outlineVariant">#DFCCAF</color>
+    <color name="md_theme_light_error">#B3261E</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+
+    <!--
+        Dark palette — the same warmth, inverted. Background is the deepest
+        tone, surface one step up, surfaceVariant one more for chips and
+        photo placeholders.
+    -->
+    <color name="md_theme_dark_primary">#E58383</color>
+    <color name="md_theme_dark_onPrimary">#551215</color>
+    <color name="md_theme_dark_primaryContainer">#73302F</color>
+    <color name="md_theme_dark_onPrimaryContainer">#FFDAD4</color>
+
+    <color name="md_theme_dark_secondary">#A1C398</color>
+    <color name="md_theme_dark_onSecondary">#1F3718</color>
+    <color name="md_theme_dark_secondaryContainer">#35502D</color>
+    <color name="md_theme_dark_onSecondaryContainer">#BDDDB4</color>
+
+    <color name="md_theme_dark_tertiary">#91A88A</color>
+    <color name="md_theme_dark_onTertiary">#172B15</color>
+    <color name="md_theme_dark_tertiaryContainer">#2E4029</color>
+    <color name="md_theme_dark_onTertiaryContainer">#D5E3CE</color>
+
+    <color name="md_theme_dark_background">#1B1713</color>
+    <color name="md_theme_dark_onBackground">#F1DEC4</color>
+    <color name="md_theme_dark_surface">#262019</color>
+    <color name="md_theme_dark_onSurface">#F1E4D2</color>
+    <color name="md_theme_dark_surfaceVariant">#342C23</color>
+    <color name="md_theme_dark_onSurfaceVariant">#C4B4A0</color>
+
+    <color name="md_theme_dark_outline">#8C7C68</color>
+    <color name="md_theme_dark_outlineVariant">#3E3529</color>
+    <color name="md_theme_dark_error">#F2B8B5</color>
+    <color name="md_theme_dark_onError">#601410</color>
+
+    <!--
+        Rating stars are amber, not primary — red stars sitting on a red
+        accent read as one blob. Overridden in values-night/colors.xml.
+    -->
+    <color name="spot_star">#D08A2E</color>
+
+    <!-- Basic Utilities -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Spotted!</string>
+
+    <string name="add_sighting">Add sighting</string>
+    <string name="new_sighting">New sighting</string>
+    <string name="settings">Settings</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    <string name="show_on_map">Show on map</string>
+    <string name="pick_photo">Pick photo</string>
+    <string name="take_photo">Take photo</string>
+
+    <string name="hint_title">What did you spot?</string>
+    <string name="hint_note">Note (optional)</string>
+    <string name="label_category">Category</string>
+    <string name="label_rating">How good was it?</string>
+    <string name="label_location">Location</string>
+    <string name="label_light">Ambient light</string>
+    <string name="label_photo">Photo</string>
+    <string name="label_the_sighting">The sighting</string>
+    <string name="label_stamped">Stamped automatically</string>
+
+    <string name="recent_sightings">Recent sightings</string>
+    <string name="section_display">Display</string>
+    <string name="goal_hint">Drives the ring on the home screen.</string>
+
+    <string name="empty_gallery">Nothing spotted yet.\nTap + to log your first find.</string>
+    <string name="locating">Locating…</string>
+    <string name="no_location">No location provider available</string>
+    <string name="location_off">Location not attached</string>
+    <string name="no_permission">Location permission denied</string>
+    <string name="no_camera_app">No camera app on this device</string>
+
+    <string name="cd_back">Back</string>
+    <string name="cd_close">Close</string>
+    <string name="cd_photo">Sighting photo</string>
+
+    <!-- Formatted in code; kept here so no UI text lives in the activities. -->
+    <string name="progress_hint">Sighting %1$d of %2$d this week</string>
+    <string name="goal_label">Weekly goal: %1$d sightings</string>
+
+    <string name="perm_rationale">
+        Spotted! stamps every sighting with the place you found it. That needs access to your location.
+    </string>
+
+    <string name="perm_denied_forever">
+        Location permission was denied permanently. You can re-enable it in the app settings.
+    </string>
+
+    <string name="weekly_goal">Weekly goal</string>
+    <string name="attach_location">Attach location to new sightings</string>
+    <string name="show_addresses">Show street addresses in the list</string>
+
+    <string-array name="categories">
+        <item>Street art</item>
+        <item>Animal</item>
+        <item>Vehicle</item>
+        <item>Sign</item>
+        <item>Plant</item>
+        <item>Other</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/addToolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        app:title="@string/new_sighting"
+        app:navigationIcon="@drawable/ic_close"
+        app:navigationContentDescription="@string/cd_close"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/addToolbar"
+        app:layout_constraintBottom_toTopOf="@id/saveButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/progressHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:textAppearance="@style/TextAppearance.Spotted.Meta"
+                tools:text="Sighting 4 of 7 this week" />
+
+            <EditText
+                android:id="@+id/titleInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/bg_field"
+                android:hint="@string/hint_title"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:padding="14dp"
+                android:textAppearance="@style/TextAppearance.Spotted.Body" />
+
+            <EditText
+                android:id="@+id/noteInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_field"
+                android:gravity="top"
+                android:hint="@string/hint_note"
+                android:inputType="textMultiLine|textCapSentences"
+                android:minLines="3"
+                android:padding="14dp"
+                android:textAppearance="@style/TextAppearance.Spotted.Body" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingBottom="8dp"
+                android:text="@string/label_category"
+                android:textAppearance="@style/TextAppearance.Spotted.Section" />
+
+            <Spinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_field"
+                android:entries="@array/categories"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingBottom="8dp"
+                android:text="@string/label_rating"
+                android:textAppearance="@style/TextAppearance.Spotted.Section" />
+
+            <RatingBar
+                android:id="@+id/ratingInput"
+                style="@style/Widget.Spotted.RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="0.5" />
+
+            <!-- photo: camera capture or gallery pick, both implicit intents -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="22dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/photoPreview"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    android:background="@drawable/bg_photo_placeholder"
+                    android:contentDescription="@string/cd_photo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_photo"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Spotted.Photo" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/takePhotoButton"
+                        style="@style/Widget.Spotted.Button.Tonal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/take_photo" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/pickPhotoButton"
+                        style="@style/Widget.Spotted.Button.Outlined"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/pick_photo" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- sensor 1: location -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="24dp"
+                android:paddingBottom="4dp"
+                android:text="@string/label_location"
+                android:textAppearance="@style/TextAppearance.Spotted.Section" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/attachLocationSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/attach_location"
+                android:textAppearance="@style/TextAppearance.Spotted.Body" />
+
+            <TextView
+                android:id="@+id/coordsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="@string/locating"
+                android:textAppearance="@style/TextAppearance.Spotted.Body" />
+
+            <TextView
+                android:id="@+id/addressText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:drawablePadding="6dp"
+                android:textAppearance="@style/TextAppearance.Spotted.Meta"
+                app:drawableStartCompat="@drawable/ic_place"
+                app:drawableTint="?attr/colorOnSurfaceVariant"
+                tools:text="Asbachstraße 8, Schmalkalden" />
+
+            <!-- sensor 2: ambient light -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="24dp"
+                android:paddingBottom="4dp"
+                android:text="@string/label_light"
+                android:textAppearance="@style/TextAppearance.Spotted.Section" />
+
+            <TextView
+                android:id="@+id/lightText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Spotted.Body"
+                tools:text="340 lx · Indoor" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/lightBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:max="100"
+                android:progress="0"
+                app:indicatorColor="?attr/colorPrimary"
+                app:trackColor="?attr/colorSurfaceVariant"
+                app:trackCornerRadius="4dp"
+                app:trackThickness="8dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/saveButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

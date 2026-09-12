@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Lighter amber so the stars keep their weight against charcoal. -->
+    <color name="spot_star">#E3B778</color>
+
+</resources>

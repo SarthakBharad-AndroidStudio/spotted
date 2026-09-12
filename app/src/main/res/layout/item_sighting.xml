@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="14dp"
+    android:paddingBottom="14dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/itemPhoto"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:background="@drawable/bg_photo_placeholder"
+        android:contentDescription="@string/cd_photo"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Spotted.Photo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Spotted.Title"
+        app:layout_constraintStart_toEndOf="@id/itemPhoto"
+        app:layout_constraintEnd_toStartOf="@id/itemLightIcon"
+        app:layout_constraintTop_toTopOf="@id/itemPhoto"
+        tools:text="Cat on a wall" />
+
+    <ImageView
+        android:id="@+id/itemLightIcon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:contentDescription="@string/label_light"
+        android:src="@drawable/ic_light"
+        app:tint="?attr/colorOnSurfaceVariant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/itemTitle"
+        app:layout_constraintBottom_toBottomOf="@id/itemTitle" />
+
+    <TextView
+        android:id="@+id/itemMeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="3dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Spotted.Meta"
+        app:layout_constraintStart_toEndOf="@id/itemPhoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemTitle"
+        tools:text="Street art · 12.09.2026 · 14:20" />
+
+    <TextView
+        android:id="@+id/itemAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="4dp"
+        android:drawablePadding="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Spotted.Meta"
+        app:drawableStartCompat="@drawable/ic_place"
+        app:drawableTint="?attr/colorOnSurfaceVariant"
+        app:layout_constraintStart_toEndOf="@id/itemPhoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemMeta"
+        tools:text="Asbachstraße 8, Schmalkalden" />
+
+    <RatingBar
+        android:id="@+id/itemRating"
+        style="@style/Widget.Spotted.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="6dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintStart_toEndOf="@id/itemPhoto"
+        app:layout_constraintTop_toBottomOf="@id/itemAddress" />
+
+    <!-- Hairline between rows so the list reads as a list, not a wall of text. -->
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/rowBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="itemPhoto,itemRating" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:background="?attr/colorOutlineVariant"
+        app:layout_constraintTop_toBottomOf="@id/rowBottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
