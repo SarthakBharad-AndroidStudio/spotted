@@ -76,7 +76,10 @@ class SettingsActivity :
             savedGoal - 1
 
         goalLabel.text =
-            "Weekly goal: $savedGoal sightings"
+            getString(
+                R.string.goal_label,
+                savedGoal
+            )
 
         attachSwitch.isChecked =
             SightingStore.isAttachLocation(
@@ -99,7 +102,10 @@ class SettingsActivity :
                 ) {
 
                     goalLabel.text =
-                        "Weekly goal: ${progress + 1} sightings"
+                        getString(
+                            R.string.goal_label,
+                            progress + 1
+                        )
                 }
 
                 override fun onStartTrackingTouch(

@@ -54,19 +54,10 @@
         <item name="cornerSize">16dp</item>
     </style>
 
-    <!-- Detail header when the photo sits inside the page margins. -->
+    <!-- Detail header; the photo sits inside the page margins. -->
     <style name="ShapeAppearance.Spotted.PhotoHero" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">24dp</item>
-    </style>
-
-    <!-- Detail header when the photo runs edge to edge under the app bar. -->
-    <style name="ShapeAppearance.Spotted.PhotoLarge" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopLeft">0dp</item>
-        <item name="cornerSizeTopRight">0dp</item>
-        <item name="cornerSizeBottomLeft">28dp</item>
-        <item name="cornerSizeBottomRight">28dp</item>
     </style>
 
     <style name="ShapeAppearance.Spotted.Fab" parent="">

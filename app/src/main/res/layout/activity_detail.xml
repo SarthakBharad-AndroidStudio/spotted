@@ -20,9 +20,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/detailToolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,127 +32,166 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="24dp">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/detailPhoto"
                 android:layout_width="match_parent"
-                android:layout_height="260dp"
-                android:background="?attr/colorSurfaceVariant"
+                android:layout_height="240dp"
+                android:background="@drawable/bg_photo_placeholder"
                 android:contentDescription="@string/cd_photo"
                 android:scaleType="centerCrop"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.Spotted.PhotoLarge" />
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Spotted.PhotoHero" />
 
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:id="@+id/detailTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.Spotted.Headline"
-                    tools:text="Cat on a wall" />
-
-                <TextView
-                    android:id="@+id/detailCategory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_category_chip"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textAppearance="@style/TextAppearance.Spotted.Meta"
-                    android:textColor="?attr/colorOnSecondaryContainer"
-                    tools:text="Animal" />
-
-                <RatingBar
-                    android:id="@+id/detailRating"
-                    style="@style/Widget.Spotted.RatingBar.Small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:stepSize="0.5" />
-
-                <TextView
-                    android:id="@+id/detailNote"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:textAppearance="@style/TextAppearance.Spotted.Body"
-                    tools:text="Sitting on the wall by the bakery, completely unbothered." />
-
-                <View
-                    style="@style/Widget.Spotted.Divider"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="16dp" />
-
-                <TextView
-                    android:id="@+id/detailWhen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.Spotted.Body"
-                    tools:text="12.09.2026 · 14:20" />
-
-                <TextView
-                    android:id="@+id/detailPlace"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:drawablePadding="8dp"
-                    android:textAppearance="@style/TextAppearance.Spotted.Body"
-                    app:drawableStartCompat="@drawable/ic_place"
-                    app:drawableTint="?attr/colorOnSurfaceVariant"
-                    tools:text="Asbachstraße 8, Schmalkalden" />
-
-                <TextView
-                    android:id="@+id/detailLight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:drawablePadding="8dp"
-                    android:textAppearance="@style/TextAppearance.Spotted.Body"
-                    app:drawableStartCompat="@drawable/ic_light"
-                    app:drawableTint="?attr/colorOnSurfaceVariant"
-                    tools:text="340 lx · Indoor" />
+                android:layout_marginTop="14dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="18dp">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/mapButton"
-                        android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/detailTitle"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/show_on_map"
-                        app:icon="@drawable/ic_map" />
+                        android:textAppearance="@style/TextAppearance.Spotted.Headline"
+                        tools:text="Cat on a wall" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/shareButton"
-                        style="@style/Widget.Spotted.Button.Outlined"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:text="@string/share"
-                        app:icon="@drawable/ic_share"
-                        app:iconTint="?attr/colorPrimary" />
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/detailCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_category_chip"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textAppearance="@style/TextAppearance.Spotted.Meta"
+                            android:textColor="?attr/colorOnSecondaryContainer"
+                            tools:text="Animal" />
+
+                        <RatingBar
+                            android:id="@+id/detailRating"
+                            style="@style/Widget.Spotted.RatingBar.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:isIndicator="true"
+                            android:numStars="5"
+                            android:stepSize="0.5" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/detailNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:textAppearance="@style/TextAppearance.Spotted.Body"
+                        tools:text="Sitting on the wall by the bakery, completely unbothered." />
 
                 </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Everything below here the app filled in by itself. -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="@string/label_stamped"
+                        android:textAppearance="@style/TextAppearance.Spotted.Section" />
+
+                    <TextView
+                        android:id="@+id/detailWhen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Spotted.Body"
+                        tools:text="12.09.2026 · 14:20" />
+
+                    <TextView
+                        android:id="@+id/detailPlace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="8dp"
+                        android:textAppearance="@style/TextAppearance.Spotted.Body"
+                        app:drawableStartCompat="@drawable/ic_place"
+                        app:drawableTint="?attr/colorOnSurfaceVariant"
+                        tools:text="Asbachstraße 8, Schmalkalden" />
+
+                    <TextView
+                        android:id="@+id/detailLight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="8dp"
+                        android:textAppearance="@style/TextAppearance.Spotted.Body"
+                        app:drawableStartCompat="@drawable/ic_light"
+                        app:drawableTint="?attr/colorOnSurfaceVariant"
+                        tools:text="340 lx · Indoor" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Implicit intents: geo: to a map app, ACTION_SEND to anything that takes text. -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mapButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/show_on_map"
+                    app:icon="@drawable/ic_map" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/shareButton"
+                    style="@style/Widget.Spotted.Button.Outlined"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:text="@string/share"
+                    app:icon="@drawable/ic_share"
+                    app:iconTint="?attr/colorPrimary" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
