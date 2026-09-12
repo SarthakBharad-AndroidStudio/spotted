@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Supreme (Indian Type Foundry). Three static weights are enough for the
+    app: 400 for reading, 500 for titles and controls, 700 for headlines.
+    Styles select a weight with android:textFontWeight rather than naming a
+    file, so bold spans inside body text resolve on their own.
+-->
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <font
+        android:font="@font/supreme_regular"
+        android:fontStyle="normal"
+        android:fontWeight="400" />
+
+    <font
+        android:font="@font/supreme_medium"
+        android:fontStyle="normal"
+        android:fontWeight="500" />
+
+    <font
+        android:font="@font/supreme_bold"
+        android:fontStyle="normal"
+        android:fontWeight="700" />
+
+</font-family>

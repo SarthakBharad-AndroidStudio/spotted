@@ -4,43 +4,53 @@
     <!--
         One place for type and component shape. Layouts reference these
         instead of repeating textSize / textColor pairs, so the four
-        screens stay in step with each other.
+        screens stay in step with each other. Every text style names
+        @font/supreme and a weight, so nothing silently falls back to
+        the system face.
     -->
 
     <!-- ==== Type scale ==== -->
 
     <style name="TextAppearance.Spotted.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="android:textFontWeight">700</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 
     <style name="TextAppearance.Spotted.Headline" parent="TextAppearance.Material3.HeadlineSmall">
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="android:textFontWeight">700</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 
     <style name="TextAppearance.Spotted.Title" parent="TextAppearance.Material3.TitleMedium">
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="android:textFontWeight">500</item>
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 
     <style name="TextAppearance.Spotted.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="android:textFontWeight">400</item>
         <item name="android:textSize">15sp</item>
         <item name="android:lineSpacingMultiplier">1.25</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 
     <style name="TextAppearance.Spotted.Meta" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="android:textFontWeight">400</item>
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
     </style>
 
     <!-- Small all-caps label that opens a section. -->
     <style name="TextAppearance.Spotted.Section" parent="TextAppearance.Material3.LabelMedium">
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="android:textFontWeight">500</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:letterSpacing">0.09</item>
@@ -92,6 +102,8 @@
         <item name="android:minHeight">52dp</item>
         <item name="cornerRadius">16dp</item>
         <item name="android:letterSpacing">0.01</item>
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="android:textFontWeight">500</item>
         <item name="android:textSize">15sp</item>
     </style>
 
@@ -99,12 +111,16 @@
         <item name="android:minHeight">52dp</item>
         <item name="cornerRadius">16dp</item>
         <item name="strokeColor">?attr/colorOutline</item>
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="android:textFontWeight">500</item>
         <item name="android:textSize">15sp</item>
     </style>
 
     <style name="Widget.Spotted.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
         <item name="android:minHeight">48dp</item>
         <item name="cornerRadius">16dp</item>
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="android:textFontWeight">500</item>
         <item name="android:textSize">15sp</item>
     </style>
 

@@ -47,6 +47,13 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
 
+        <!--
+            Supreme as the app-wide face. Dialogs, spinner rows, snackbars
+            and menus are never styled by hand, and this is what reaches them.
+        -->
+        <item name="android:fontFamily">@font/supreme</item>
+        <item name="fontFamily">@font/supreme</item>
+
         <!-- Component defaults, so individual layouts stay clean. -->
         <item name="toolbarStyle">@style/Widget.Spotted.Toolbar</item>
         <item name="materialCardViewStyle">@style/Widget.Spotted.Card</item>

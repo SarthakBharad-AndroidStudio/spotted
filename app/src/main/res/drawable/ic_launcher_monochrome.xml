@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-    The app's own weekly ring, at icon scale: a 300° arc starting at twelve
-    o'clock with a sighting marked at the centre. Everything sits inside the
-    central 66dp, so no launcher mask can clip it.
+    Themed-icon layer (Android 13+). The system supplies the colour, so the
+    shapes are drawn flat black and the gap in the ring carries the meaning.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
@@ -13,12 +12,12 @@
 
     <path
         android:pathData="M54,27 A27,27 0 1 1 30.62,40.5"
-        android:strokeColor="#BD4444"
+        android:strokeColor="#000000"
         android:strokeWidth="10"
         android:strokeLineCap="round" />
 
     <path
-        android:fillColor="#73976A"
+        android:fillColor="#000000"
         android:pathData="M54,54m-8,0a8,8 0 1,0 16,0a8,8 0 1,0 -16,0" />
 
 </vector>

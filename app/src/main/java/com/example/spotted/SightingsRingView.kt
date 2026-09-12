@@ -12,6 +12,7 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.DecelerateInterpolator
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.withRotation
 import com.google.android.material.R as MaterialR
@@ -24,6 +25,10 @@ import kotlin.math.min
  * Every colour is pulled from the theme rather than written into the
  * class, so the ring follows the cream and the charcoal palettes
  * instead of drawing dark ink on a dark background in night mode.
+ *
+ * Canvas text has no styles to inherit, so the two faces are loaded
+ * here to match the rest of the app rather than falling back to the
+ * platform default.
  */
 class SightingsRingView(
     context: Context,
@@ -105,7 +110,10 @@ class SightingsRingView(
         Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.FILL
             textAlign = Paint.Align.CENTER
-            typeface = Typeface.create(
+            typeface = ResourcesCompat.getFont(
+                context,
+                R.font.supreme_bold
+            ) ?: Typeface.create(
                 Typeface.DEFAULT,
                 Typeface.BOLD
             )
@@ -118,6 +126,10 @@ class SightingsRingView(
         Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.FILL
             textAlign = Paint.Align.CENTER
+            typeface = ResourcesCompat.getFont(
+                context,
+                R.font.supreme_medium
+            ) ?: Typeface.DEFAULT
             color = themeColor(
                 MaterialR.attr.colorOnSurfaceVariant
             )
