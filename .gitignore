@@ -1,7 +1,9 @@
 # Gradle
 .gradle/
 build/
-app/build/
+
+# Kotlin compiler session files
+.kotlin/
 
 # Machine-specific — points at your own SDK install
 local.properties
@@ -12,6 +14,13 @@ local.properties
 .cxx/
 .externalNativeBuild/
 captures/
+
+# Build outputs — "Generate Signed App Bundle / APK" writes here,
+# and this folder is not inside build/
+release/
+*.apk
+*.aab
+output-metadata.json
 
 # Signing material — never commit these
 *.jks
